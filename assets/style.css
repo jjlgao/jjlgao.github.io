@@ -4,8 +4,10 @@ margin: 0px;
 background: #f7f5f2;
 }
 
-/*CSS attributes for the landing page--the first page that is seen when the website is accessed.*/
+/* CSS attributes for the landing page--the first page that is seen when the website is accessed. */
 #landing-container {
+	display: inline-block;
+	position: relative;
 	height: 100%;
 	width: 100%;
 }
@@ -19,4 +21,41 @@ background: #f7f5f2;
 	top: calc(50% - 80px);
 	font-size: 24px;
 	white-space: pre;
+}
+
+#landing-footer {
+	position: absolute;
+	bottom: 5%;
+	width: 100%;
+	height: 20%;
+	text-align: center;
+	float: bottom;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.down-arrow {
+	padding-left: 40%;
+	padding-right: 40%;
+	padding-top: 10%;
+	transition: 1s;
+	opacity: 0;
+	float: bottom;
+}
+
+.down-arrow-active {
+    transform: translateY(10px);
+}
+
+.down-arrow:hover {
+	opacity: 1.0;
+}
+
+/* CSS attributes for the about page--the seocnd page that is accessed. */
+#about-container {
+	display: inline-block;
+	height: 80%;
+	width: 80%;
+	background: #ffffff;
+	padding: 10%;
 }
