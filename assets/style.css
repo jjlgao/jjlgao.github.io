@@ -14,12 +14,12 @@ background: #f7f5f2;
 
 #landing-text {
 	float: right;
-	width: 50%;
+	width: 100%;
 	text-align: right;
 	position: absolute;
-	right: 2.5%;
-	top: calc(50% - 80px);
-	font-size: 24px;
+	right: 15%;
+	top: calc(60% - 80px);
+	font-size: 36px;
 	white-space: pre;
 }
 
@@ -37,7 +37,7 @@ background: #f7f5f2;
 .down-arrow {
 	padding-left: 40%;
 	padding-right: 40%;
-	padding-top: 10%;
+	padding-top: 7.5%;
 	transition: 1s;
 	opacity: 0;
 	float: bottom;
@@ -54,8 +54,135 @@ background: #f7f5f2;
 /* CSS attributes for the about page--the seocnd page that is accessed. */
 #about-container {
 	display: inline-block;
-	height: 80%;
-	width: 80%;
+	position: relative;
+	height: 100%;
+	width: 100%;
 	background: #ffffff;
-	padding: 10%;
+}
+
+#about-header {
+	display: inline-block;
+	text-align: center;
+	margin-top: 1%;
+	height: 2%;
+	width: 100%;
+	font-size: 24px;
+}
+
+#about-top {
+	display: inline-block;
+	text-align: center;
+	margin-top: 9%;
+	height: 30%;
+	width: 100%;
+	padding-bottom: 1%;
+	transition: 1s;
+}
+
+#about-expand {
+	display: none;
+	width: 100%;
+	height: 30%;
+	opacity: 0.0;
+	background: #f7f5f2;
+}
+
+#about-bottom {
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+	height: 30%;
+	margin-bottom: 7.5%;
+	width: 100%;
+	padding-top: 1%;
+	bottom: 0;
+	float: bottom;
+	transition: 1s;
+}
+
+.about-box {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	top: calc(50% - 130	px);
+	height: 90%;
+	margin-left: 2%;
+	margin-right: 2%;
+	transition: 1s;
+	cursor: pointer;
+}
+
+/* CSS attribute that forces a 1:1 aspect ratio for the about-box. */
+.about-box:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+	background: #000;
+}
+
+.about-box:hover {
+	opacity: 0.5 !important;
+	color: #ffffff !important;
+}
+
+.about-box-active {
+	opacity: 0.5;
+	color: #ffffff;
+}
+
+.content {
+	position: absolute;
+	top: calc(50% - 5px);
+	left: 0;
+	bottom: calc(50% + 5px);
+	right: 0;
+}
+
+#about-footer {
+	position: absolute;
+	width: 100%;
+	height: 20%;
+	text-align: center;
+	bottom: 0;
+	z-index: 100;
+	transition: 1s;
+	cursor: pointer;
+}
+
+/* CSS attributes for the experience page. */
+#experience-container {
+	display: inline-block;
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+#experience-footer {
+	position: absolute;
+	width: 100%;
+	height: 20%;
+	text-align: center;
+	bottom: 0;
+	z-index: 100;
+	transition: 1s;
+	cursor: pointer;
+}
+
+#contact-container {
+	display: inline-block;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background: #ffffff;
+}
+
+#contact-footer {
+	position: absolute;
+	width: 100%;
+	height: 20%;
+	text-align: center;
+	bottom: 0;
+	z-index: 100;
+	transition: 1s;
+	cursor: pointer;
 }

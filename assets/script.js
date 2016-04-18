@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	// // //Chevron animation for the landing page.
+	//Chevron animation for the landing page.
 	setTimeout(function() {
 		$('.down-arrow').show();
 		$('.down-arrow').animate({opacity: 0.5},'slow');
@@ -17,17 +17,114 @@ $(document).ready(function(){
 				
 			}
 		});
-	},1500);
 
+		$('#about-footer').hover(function() {
+			if ($('.down-arrow').hasClass('down-arrow-active')) {
+				$('.down-arrow').removeClass('down-arrow-active');
+				$('.down-arrow').animate({opacity: 0.5},'fast');
+			} else {
+				setTimeout(function() {
+					$('.down-arrow').addClass('down-arrow-active');
+					$('.down-arrow').animate({opacity: 1.0},'fast');
+				},0);
+				
+			}
+		});
+	},500);
+
+	//Animation for footers
 	$('#landing-footer').click(function() {
 		$('html,body').animate({
 	       scrollTop: $('#about-container').offset().top
+	    }, 500);
+	});
+	$('#about-footer').click(function() {
+		$('html,body').animate({
+	       scrollTop: $('#experience-container').offset().top
+	    }, 500);
+	});
+	$('#experience-footer').click(function() {
+		$('html,body').animate({
+	       scrollTop: $('#contact-container').offset().top
+	    }, 500);
+	});
+	$('#contact-footer').click(function() {
+		$('html,body').animate({
+	       scrollTop: 0
 	    }, 500);
 	});
 
 	//Animate the text for the landing page.
 	var text = "Hey. My name is Jason.  <br />I'm an aspiring programmer with a variety of interests.  <br />Welcome to my website.  <br /> ";
 	animate_typed_text('#landing-text',text);
+
+	//Change the text of the boxes on the about page.
+	var cw = $('.about-box').height();
+	$('.about-box').css({'width':cw+'px'});
+
+	$('#about-box-ed').hover(function() {
+		$('#about-ed').text("Education");
+	});
+
+	$('#about-box-projs').hover(function() {
+		$('#about-projs').text("Projects");
+	});
+
+	$('#about-box-interests').hover(function() {
+		$('#about-interests').text("Interests");
+	});
+
+	$('#about-box-me').hover(function() {
+		$('#about-me').text("Me");
+	});
+
+	//Expand the "About" screen on click.
+	$('.about-box').click(function() {
+		console.log($(this).hasClass('.about-box-active'));
+		if ($('#about-top').css('margin-top') == "0px") {
+			//Not working
+			if ($(this).hasClass('.about-box-active')) {
+				$(this).removeClass('.about-box-active');
+			}
+			$('#about-expand').animate({opacity: 0.0},'slow');
+
+			setTimeout(function() {
+				$('#about-header').animate({opacity: 1.0},'slow');
+				$('#about-expand').hide();
+				$('#about-footer').show();
+				$('#about-footer').animate({opacity: 1.0},'slow');
+			},1000);
+			$('#about-top').animate({"margin-top": "9%"},'slow');
+			$('#about-bottom').animate({"margin-bottom":"9%"},'slow');	
+		} else {
+			//Not working
+			if (!$(this).hasClass('.about-box-active')) {
+				$(this).addClass('.about-box-active');
+			}
+			$('#about-top').animate({"margin-top": 0},'slow');
+			$('#about-bottom').animate({"margin-bottom":0},'slow');
+			$('#about-footer').animate({opacity: 0.0},'fast');
+			setTimeout(function() {
+				$('#about-header').animate({opacity: 0.0},'slow');
+				$('#about-expand').show();
+				$('#about-expand').animate({opacity: 1.0},'slow');
+				$('#about-footer').hide();
+			},1000);
+		}
+	});
+
+	$('#about-expand').click(function() {
+		if ($(this).hasClass('.about-box-active')) {
+			$(this).removeClass('.about-box-active');
+		}
+		$('#about-expand').animate({opacity: 0.0},'slow');
+		setTimeout(function() {
+			$('#about-header').animate({opacity: 1.0},'slow');
+			$('#about-expand').hide();
+		},1000);
+		$('#about-top').animate({"margin-top": "9%"},'slow');
+		$('#about-bottom').animate({"margin-bottom":"9%"},'slow');
+	});
 });
 
 function animate_typed_text(div,text) {
