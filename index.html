@@ -3,22 +3,35 @@
 <title>Jason Gao</title>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="assets/style.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <script src="assets/jquery-1.9.1.js"></script>
+<script src="assets/waypoints.min.js"></script>
 <script src="assets/script.js"></script>
 </head>
 <body>
 	<div id="landing-container">
+		<div id="landing-background">
+		</div>
+		<div id="landing-menu">
+			<ul>
+				<li><a href='#landing-container'>Home</a></li>
+				<li><a href='#about-container'>About</a></li>
+				<li><a href='#experience-container'>Experience</a></li>
+				<li><a href='#contact-container'>Contact</a></li>
+			</ul>
+		</div>
 		<div id="landing-text">
 			Hey. My name is Jason.  <br />I'm an aspiring programmer with a variety of interests.  <br />Welcome to my website.  <br /> (Please enable Javascript for this site to work correctly.)
 		</div>
 		<div id="landing-icons">
 		</div>
-		<div id="landing-footer">
-			<img src="https://maxcdn.icons8.com/windows10/PNG/32/Arrows/angle_down-32.png" class="down-arrow" width="32">
+		<div id="landing-footer" class="footer">
+			<i class="material-icons down-arrow" id="landing-arrow">keyboard_arrow_down</i>
 		</div>
 	</div>
 	<div id="about-container">
-		<div id="about-header">
+		<div class="header" id="about-header">
 			ABOUT ME
 		</div>
 		<div id="about-top">
@@ -30,6 +43,55 @@
 			</div>
 		</div>
 		<div id="about-expand">
+			<div class="about-text" id="ed-text">
+				<h1>University of California, Berkeley</h1>
+				<h3>Electrical Engineering & Computer Science B.S. May 2017</h3>
+
+				<p>
+					I spent 4 years doing computer science in my undergrad career at UC Berkeley, learning everything from the operating system basis to high level topics like machine learning. 
+				</p>
+			</div>
+			<div class="about-text" id="proj-text">
+				<h1>
+					Nothing's here yet. Check back later.
+				</h1>
+			</div>
+			<div class="about-text" id="interests-text">
+				HOVER FOR MORE INFO
+				<div id="about-box-mini-container">
+					<div class="about-box-mini" id="about-got">
+						<div class="overlay" id="overlay-got"></div>
+						<div class="content-mini" id="about-got-text"></div>
+					</div>
+					<div class="about-box-mini" id="about-gym">
+						<div class="overlay" id="overlay-gym"></div>
+						<div class="content-mini" id="about-gym-text"></div>
+					</div>
+					<div class="about-box-mini" id="about-food">
+						<div class="overlay" id="overlay-food"></div>
+						<div class="content-mini" id="about-food-text"></div>
+					</div>
+					<div class="about-box-mini" id="about-stock">
+						<div class="overlay" id="overlay-stock"></div>
+						<div class="content-mini" id="about-stock-text"></div>
+					</div>
+				</div>
+			</div>
+			<div class="about-text" id="me-text">
+				<h1>Who am I?</h1>
+
+				<p>
+					I was raised in San Diego, so I have a strong loyalty to Southern California. Growing up, I never really had a specific interest in any given field, but by the time I got to high school, I had actually developed an interest in medicine. For two or three years, I really thought I would be a doctor, and a good one at that. 
+				</p>
+
+				<p>
+					I'm good at science in general, though. I wasn't sure I wanted to limit myself to one subject, so I chose computer science when I went into college so that I could veer back to medicine if I wanted (via genetics or medical machinery) while also having flexible enough skills to do anything else if I wanted.
+				</p>
+
+				<p>
+					For now, I explore the possibilities of what I've learned as much as I can. I hope that one day, I can use these skills to impact the world in a way that I can be really proud of.
+				</p>
+			</div>
 		</div>
 		<div id="about-bottom">
 			<div class="about-box" id="about-box-interests">
@@ -39,20 +101,42 @@
 				<div class="content" id="about-me"></div>
 			</div>
 		</div>
-		<div id="about-footer">
-			<img src="https://maxcdn.icons8.com/windows10/PNG/32/Arrows/angle_down-32.png" class="down-arrow" width="32">
+		<div id="about-footer" class="footer">
+			<i class="material-icons down-arrow" id="about-arrow">keyboard_arrow_down</i>
 		</div>
 	</div>
 	<div id="experience-container">
-		Hi
-		<div id="experience-footer">
-			<img src="https://maxcdn.icons8.com/windows10/PNG/32/Arrows/angle_down-32.png" class="down-arrow" width="32">
+		<div class="header">
+			EXPERIENCE
+		</div>
+		<div class="experience-item">
+			Hi
+		</div>
+		<div id="experience-footer" class="footer">
+			<i class="material-icons down-arrow" id="experience-arrow">keyboard_arrow_down</i>
 		</div>
 	</div>
 	<div id="contact-container">
-		Allo
-		<div id="contact-footer">
-			<img src="https://maxcdn.icons8.com/windows10/PNG/32/Arrows/angle_up-32.png" class="down-arrow" width="32">
+		<div class="header" id="contact-header">
+			CONTACT ME
+		</div>
+		<div class="blurb">
+			Like what you see?
+			Let's get in touch.
+		</div>
+		<div id="contact-buttons">
+			<div class='circle'>
+				<a href="https://github.com/jjlgao"><i class="fa fa-github" id="github" aria-hidden="true" href="github.com"></i></a>
+			</div>
+			<div class='circle'>
+				<a href="mailto:jasonjlgao@gmail.com"><i class="fa fa-envelope" id="mail" aria-hidden="true"></i></a>
+			</div>
+			<div class='circle'>
+				<a href="https://www.linkedin.com/in/jason-gao-7806a788"><i class="fa fa-linkedin" id="linkedin" aria-hidden="true"></i></a>
+			</div>
+		</div>
+		<div id="contact-footer" class="footer">
+			<i class="material-icons up-arrow" id="contact-arrow">keyboard_arrow_up</i>
 		</div>
 	</div>
 </body>

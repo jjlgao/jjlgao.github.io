@@ -1,11 +1,15 @@
 $(document).ready(function(){
+	//Animation for the landing header.
+	$('#landing-menu').animate({opacity: 1.0},'slow');
 
 	//Chevron animation for the landing page.
 	setTimeout(function() {
 		$('.down-arrow').show();
 		$('.down-arrow').animate({opacity: 0.5},'slow');
+		$('.up-arrow').show();
+		$('.up-arrow').animate({opacity: 0.5},'slow');
 
-		$('#landing-footer').hover(function() {
+		$('.footer').hover(function() {
 			if ($('.down-arrow').hasClass('down-arrow-active')) {
 				$('.down-arrow').removeClass('down-arrow-active');
 				$('.down-arrow').animate({opacity: 0.5},'fast');
@@ -18,14 +22,14 @@ $(document).ready(function(){
 			}
 		});
 
-		$('#about-footer').hover(function() {
-			if ($('.down-arrow').hasClass('down-arrow-active')) {
-				$('.down-arrow').removeClass('down-arrow-active');
-				$('.down-arrow').animate({opacity: 0.5},'fast');
+		$('#contact-footer').hover(function() {
+			if ($('.up-arrow').hasClass('up-arrow-active')) {
+				$('.up-arrow').removeClass('up-arrow-active');
+				$('.up-arrow').animate({opacity: 0.5},'fast');
 			} else {
 				setTimeout(function() {
-					$('.down-arrow').addClass('down-arrow-active');
-					$('.down-arrow').animate({opacity: 1.0},'fast');
+					$('.up-arrow').addClass('up-arrow-active');
+					$('.up-arrow').animate({opacity: 1.0},'fast');
 				},0);
 				
 			}
@@ -60,6 +64,7 @@ $(document).ready(function(){
 
 	//Change the text of the boxes on the about page.
 	var cw = $('.about-box').height();
+	console.log(cw);
 	$('.about-box').css({'width':cw+'px'});
 
 	$('#about-box-ed').hover(function() {
@@ -75,31 +80,41 @@ $(document).ready(function(){
 	});
 
 	$('#about-box-me').hover(function() {
-		$('#about-me').text("Me");
+		$('#about-me').text("Origins");
 	});
+
+	
 
 	//Expand the "About" screen on click.
 	$('.about-box').click(function() {
-		console.log($(this).hasClass('.about-box-active'));
+		console.log(this.id);
+		var box_id = this.id;
+		var is_active = false;
+		if ($(this).hasClass('about-box-active'))
+			is_active = true;
 		if ($('#about-top').css('margin-top') == "0px") {
-			//Not working
-			if ($(this).hasClass('.about-box-active')) {
-				$(this).removeClass('.about-box-active');
+			if ($('.about-box').hasClass('about-box-active')) {
+				$('.about-box').removeClass('about-box-active');
 			}
 			$('#about-expand').animate({opacity: 0.0},'slow');
 
 			setTimeout(function() {
-				$('#about-header').animate({opacity: 1.0},'slow');
+				if (is_active)
+					$('#about-header').animate({opacity: 1.0},'slow');
 				$('#about-expand').hide();
-				$('#about-footer').show();
+				if (is_active)
+					$('#about-footer').show();
 				$('#about-footer').animate({opacity: 1.0},'slow');
+				$('.about-text').hide();
 			},1000);
-			$('#about-top').animate({"margin-top": "9%"},'slow');
-			$('#about-bottom').animate({"margin-bottom":"9%"},'slow');	
-		} else {
-			//Not working
-			if (!$(this).hasClass('.about-box-active')) {
-				$(this).addClass('.about-box-active');
+			if (is_active) {
+				$('#about-top').animate({"margin-top": "9%"},'slow');
+				$('#about-bottom').animate({"margin-bottom":"9%"},'slow');
+			}
+		} 
+		if (!is_active) {
+			if (!$(this).hasClass('about-box-active')) {
+				$(this).addClass('about-box-active');
 			}
 			$('#about-top').animate({"margin-top": 0},'slow');
 			$('#about-bottom').animate({"margin-bottom":0},'slow');
@@ -109,13 +124,74 @@ $(document).ready(function(){
 				$('#about-expand').show();
 				$('#about-expand').animate({opacity: 1.0},'slow');
 				$('#about-footer').hide();
+
+				if (box_id == 'about-box-ed') {
+					$('#ed-text').show();
+				}
+				else if (box_id == 'about-box-projs') {
+					$('#proj-text').show();
+				}
+				else if (box_id == 'about-box-interests') {
+					$('#interests-text').show();
+					var cw2 = $('.about-box-mini').height();
+					console.log(cw2);
+					$('.about-box-mini').css({'width':cw2+'px'});
+
+					$('#about-got').hover(function() {
+						$('#about-got-text').text("I'm a huge Game of Thrones nerd, and I look forward to every season.");
+						$('#overlay-got').addClass('overlay-active');
+						$('#overlay-got').animate({"opacity":1.0},'fast');
+					}, function() {
+						$('#overlay-got').animate({"opacity":0.0},'fast');
+						setTimeout(function() {
+							$('#overlay-got').removeClass('overlay-active');
+						},1000);
+					});
+
+					$('#about-gym').hover(function() {
+						$('#about-gym-text').text("Lately, I've been trying to be more active, and I'm really enjoying it.");
+						$('#overlay-gym').addClass('overlay-active');
+						$('#overlay-gym').animate({"opacity":1.0},'fast');
+					}, function() {
+						$('#overlay-gym').animate({"opacity":0.0},'fast');
+						setTimeout(function() {
+							$('#overlay-gym').removeClass('overlay-active');
+						},1000);
+					});
+
+					$('#about-food').hover(function() {
+						$('#about-food-text').text("Although I don't have much time to do so, I like to cook, when I can.");
+						$('#overlay-food').addClass('overlay-active');
+						$('#overlay-food').animate({"opacity":1.0},'fast');
+					}, function() {
+						$('#overlay-food').animate({"opacity":0.0},'fast');
+						setTimeout(function() {
+							$('#overlay-food').removeClass('overlay-active');
+						},1000);
+					});
+
+					$('#about-stock').hover(function() {
+						$('#about-stock-text').text("Recently, I've tried my hand at investing. It's a learning process, but I think it will pay off.");
+						$('#overlay-stock').addClass('overlay-active');
+						$('#overlay-stock').animate({"opacity":1.0},'fast');
+					}, function() {
+						$('#overlay-stock').animate({"opacity":0.0},'fast');
+						setTimeout(function() {
+							$('#overlay-stock').removeClass('overlay-active');
+						},1000);
+					});
+
+				}
+				else if (box_id == 'about-box-me') {
+					$('#me-text').show();
+				}
 			},1000);
 		}
 	});
 
 	$('#about-expand').click(function() {
-		if ($(this).hasClass('.about-box-active')) {
-			$(this).removeClass('.about-box-active');
+		if ($('.about-box').hasClass('about-box-active')) {
+			$('.about-box').removeClass('about-box-active');
 		}
 		$('#about-expand').animate({opacity: 0.0},'slow');
 		setTimeout(function() {
@@ -124,6 +200,15 @@ $(document).ready(function(){
 		},1000);
 		$('#about-top').animate({"margin-top": "9%"},'slow');
 		$('#about-bottom').animate({"margin-bottom":"9%"},'slow');
+	});
+
+	var blurb_active = false;
+	$('#experience-container').waypoint(function(direction) {
+		var text = "Like what you see?  <br />Let's get in touch.";
+		if (direction == 'down' && blurb_active == false) {
+			animate_typed_text_no_delay('.blurb',text);
+			blurb_active = true;
+		}
 	});
 });
 
@@ -192,6 +277,71 @@ function animate_typed_text(div,text) {
 
 				old_slice_val = slice_val;
 			},(i==1)?2000*(i) + 1000:((i==2)?3000*(i) + 1000:4000*(i) + 1000));		
+	}
+
+	//Have the cursor blink every so often.
+	setInterval(function() {
+		var landing_text = $(div).html();
+		var cursor = landing_text.slice(-1);
+		var landing_text_no_cursor = landing_text.slice(0,-1);
+
+		if (cursor == '|') {
+			$(div).html(landing_text_no_cursor + '  ');
+		} else {
+			$(div).html(landing_text_no_cursor.slice(0,-1) + '|');
+		}
+	},799);
+}
+
+function animate_typed_text_no_delay(div,text) {
+	/*
+		Takes a line of text and animates as if you're typing it in MS Word.
+	*/
+	var lines = text.split('<br />');
+	
+	//Write out the text.
+	$(div).html("|");
+	var length_of_str = [0];
+	for (var i=0; i <= lines.length; i++) {
+		if (i < lines.length)
+			length_of_str.push(length_of_str[i] + lines[i].length);
+		if (i < lines.length - 1)
+			length_of_str[i+1] += '<br />'.length;
+
+		var old_slice_val = 0;
+		setTimeout(function() {
+				
+				//Type out the text, one letter at a time, per line.
+				var slice_val = length_of_str.shift();
+				var cursor_val = old_slice_val;
+				for (var j = old_slice_val; (slice_val < text.length && j <= slice_val - 2 - '<br />'.length) || ((slice_val == text.length || slice_val == 0) && j <= slice_val); j++) {
+					setTimeout(function() {
+						var current_cursor = $(div).html().slice(-1);
+						if (current_cursor == "|") {
+							$(div).html(text.slice(0,cursor_val) + "|");
+						} else {
+							$(div).html(text.slice(0,cursor_val) + "  ");
+						}
+						cursor_val++;
+					},75*(j - old_slice_val));
+				}
+
+				//Naturally move the cursor down to the next line after a little while after finishing a line of text.
+				if (slice_val != old_slice_val) {
+					setTimeout(function() {
+						var current_cursor = $(div).html().slice(-1);
+						if (current_cursor == "|") {
+							$(div).html(text.slice(0,cursor_val - 1 + '  <br />'.length) + "|");
+						} else {
+							$(div).html(text.slice(0,cursor_val - 1 + '  <br />'.length) + "  ");
+						}
+						var h = $(div).html();
+					},75*(j - old_slice_val + 15));
+					
+				}
+
+				old_slice_val = slice_val;
+			},(i==1)?1000*(i):((i==2)?2000*(i):3000*(i)));		
 	}
 
 	//Have the cursor blink every so often.
