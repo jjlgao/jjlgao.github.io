@@ -35,6 +35,12 @@ $(document).ready(function(){
 		$('html,body').animate({
 	       scrollTop: $('#contact-container').offset().top
 	    }, 500);
+
+	    setTimeout(function() {
+	    	$('html,body').animate({
+		       scrollTop: $('#contact-container').offset().top
+		    }, 2000);
+	    }, 3000);
 	});
 
 	//Chevron animation for the landing page.

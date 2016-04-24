@@ -245,7 +245,7 @@ path {
 	content: "";
 	display: block;
 	padding-top: 100%;
-	background: url('san-diego-skyline.jpg');
+	background: url('san-diego-skyline.jpg') center center;
 	background-size: cover;
 }
 
