@@ -526,6 +526,7 @@ path {
 	left: calc(45% - 75px);
 	top: 77.5px;
 	opacity: 0.0;
+	transition: 0s;
 }
 
 .timeline-right-line {
@@ -534,6 +535,7 @@ path {
 	right: calc(45% - 75px);
 	top: 77.5px;
 	opacity: 0.0;
+	transition: 0s;
 }
 
 #experience-line-left {

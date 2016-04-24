@@ -286,16 +286,16 @@ $(document).ready(function(){
 		var timeline_left = $('.experience-item-container').width()*.45 - 75;
 		var old_opacity = 1.0;
 		$('.exp-logo').hover(function() {
-			old_opacity = $(this).parent().parent().parent().find(".timeline-right-line").css('opacity');
+			old_opacity = $(this).parent().parent().parent().find(".timeline-left-line").css('opacity') + $(this).parent().parent().parent().find(".timeline-right-line").css('opacity');
 			if (!old_opacity) {
 				console.log('ye');
 				old_opacity = 1.0;
 			}
-			$(this).parent().parent().parent().find(".timeline-left-line").animate({left: timeline_left - 2, width: timeline_width + 2, opacity: 0.75},1000);
-			$(this).parent().parent().parent().find(".timeline-right-line").animate({right: timeline_left - 2, width: timeline_width + 2, opacity: 0.75},1000);
+			$(this).parent().parent().parent().find(".timeline-left-line").animate({left: timeline_left - 2, width: timeline_width + 2, opacity: 0.75},500);
+			$(this).parent().parent().parent().find(".timeline-right-line").animate({right: timeline_left - 2, width: timeline_width + 2, opacity: 0.75},500);
 		},function() {
-			$(this).parent().parent().parent().find(".timeline-left-line").animate({left: timeline_left, width: timeline_width, opacity: 1.0},1000);
-			$(this).parent().parent().parent().find(".timeline-right-line").animate({right: timeline_left, width: timeline_width, opacity: old_opacity},1000);
+			$(this).parent().parent().parent().find(".timeline-left-line").animate({left: timeline_left, width: timeline_width, opacity: old_opacity},500);
+			$(this).parent().parent().parent().find(".timeline-right-line").animate({right: timeline_left, width: timeline_width, opacity: old_opacity},500);
 		});
 
 		setTimeout(function() {
