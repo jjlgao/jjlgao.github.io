@@ -1,6 +1,7 @@
 /* Global style attributes for the entire page. */
 body {
-	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/*font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+	font-family: 'Hind', sans-serif;
 	margin: 0px;
 	background: #f7f5f2; /* Off-white. */
 	/*background: #E0F2F1;*/
@@ -39,11 +40,11 @@ body {
 	height: 85%;
 	background: url('la_jolla.jpg') center 40%;
 	background-size: cover;
-	filter: url(filters.svg#grayscale);
+	/*filter: url(filters.svg#grayscale);*/
 	/* Firefox 3.5+ */
-	filter: gray;
+	/*filter: gray;*/
 	/* IE6-9 */
-	-webkit-filter: grayscale(1);
+	/*-webkit-filter: grayscale(1);*/
 	/* Google Chrome & Safari 6+ */
 	z-index: -200;
 }
@@ -113,6 +114,7 @@ path {
 	font-size: 36px;
 	white-space: pre;
 	color: white;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .footer {
@@ -184,7 +186,77 @@ path {
 	font-size: 48px;
 }
 
-/* CSS attributes for the about page--the seocnd page that is accessed. */
+/* CSS attributes for the intro page--the a mini page that is accessed between landing and about. */ 
+#intro-container {
+	position: relative;
+	text-align: center;
+	overflow: auto;
+}
+
+#intro-background {
+	position: absolute;
+	background: #212121;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: -200;
+}
+
+#intro-item {
+	position: relative;
+	display: inline-block;
+	margin-top: 75px;
+	margin-bottom: 75px;
+	height:175px;
+	width: 500px;
+	border-radius:175px;
+	background: #FAFAFA;
+}
+
+#intro-image {
+	display: inline-block;
+	position: absolute;
+	height:150px;
+	width: 150px;
+	border-radius:150px;
+	text-align:center;
+	margin-top: 12.5px;
+	margin-left: -150px;
+	background: #FAFAFA;
+	overflow: hidden;
+	border: 3px solid #FAFAFA;
+}
+
+.star {
+	position: absolute;
+	background: #FFFFFF;
+	height: 10px;
+	width: 10px;
+	border-radius: 10px;
+	z-index: -100;
+	transition: 2.5s;
+}
+
+.intro-img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+#intro-blurb {
+	display: absolute;
+	background: #FAFAFA;
+	display: inline-block;
+	margin-top: 50px;
+	width: 350px;
+	border-radius: 150px;
+	text-align: justify;
+	margin-left: 25px;
+	color: #424242;
+	font-family: 'Raleway', sans-serif;
+}
+
+/* CSS attributes for the about page--the second page that is accessed. */
 #about-container {
 	display: inline-block;
 	position: relative;
@@ -540,8 +612,8 @@ path {
 
 .exp-text {
 	line-height: 1.25;
-	letter-spacing: 1px;
-	text-align: left;
+	letter-spacing: 1.25px;
+	text-align: justify;
 	font-size: 12px;
 }
 

@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 	$('#landing-about').click(function() {
 		$('html,body').animate({
-	       scrollTop: $('#about-container').offset().top
+	       scrollTop: $('#intro-container').offset().top
 	    }, 500);
 	});
 
@@ -65,7 +65,7 @@ $(document).ready(function(){
 	//Animation for footers
 	$('#landing-footer').click(function() {
 		$('html,body').animate({
-	       scrollTop: $('#about-container').offset().top
+	       scrollTop: $('#intro-container').offset().top
 	    }, 500);
 	});
 	$('#about-footer').click(function() {
@@ -92,6 +92,8 @@ $(document).ready(function(){
 	//Animate the text for the landing page.
 	var text = "Hey. My name is Jason.  <br />I'm an aspiring programmer with a variety of interests.  <br />Welcome to my website.  <br /> ";
 	animate_typed_text('#landing-text',text);
+
+	animate_stars('#intro-container');
 
 	//Change the text of the boxes on the about page.
 	var cw = $('.about-box').height();
@@ -481,4 +483,76 @@ function animate_typed_text_no_delay(div,text) {
 			$(div).html(landing_text_no_cursor.slice(0,-1) + '|');
 		}
 	},799);
+}
+
+function animate_stars(div) {
+	//Makes a bunch of circles flicker on the screen, like stars. 
+	var num_stars = 250;
+
+	var parent_div = document.getElementById(div.substr(1));
+	var max_height = 315;
+	var max_width = $(window).width() - 10;
+	console.log(max_width);
+
+	console.log(div);
+
+	var stars = []
+	
+	for (var i=0; i < num_stars; i++) {
+		var new_div = document.createElement('div');
+		new_div.className = 'star';
+		parent_div.appendChild(new_div);
+
+		new_div.style.top = Math.random() * max_height;
+		new_div.style.left = Math.random() * max_width;
+
+		var new_div_size = Math.max(Math.random() * 10, 5);
+		new_div.style.width = new_div_size;
+		new_div.style.height = new_div_size;
+		new_div.style.borderRadius = new_div_size;
+
+		if (Math.random() < 0.1) {
+			new_div.style.background = '#B3E5FC'; //Light blue
+
+			if (Math.random() > 0.8) {
+				new_div.style.background = '#2196F3'; //Really angry blue.
+			}
+		} else if (Math.random() > 0.9) {
+			new_div.style.background = '#FFCDD2'; //Red
+
+			if (Math.random() > 0.6) {
+				new_div.style.background = '#EF5350'; //Really angry red.
+			}
+		}
+
+		stars.push(new_div);
+	}
+
+	//Have the stars blink.
+	setInterval(function() {
+		for (var i=0; i < stars.length; i++) {
+			var star = stars[i];
+
+			if (Math.random() >= 0.75) {
+				if (star.style.opacity > 0.0) {
+					star.style.opacity = 0.0;
+				}
+			}
+		}
+	},1000);
+
+	setTimeout(function() {
+		setInterval(function() {
+				for (var i=0; i < stars.length; i++) {
+					var star = stars[i];
+
+					if (Math.random() >= 0.75) {
+						if (star.style.opacity < 1.0) {
+							star.style.opacity = 1.0;
+						} 
+					}
+				}
+			},1000);
+	},500);
+	
 }
