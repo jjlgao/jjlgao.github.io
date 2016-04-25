@@ -5,9 +5,9 @@ $(document).ready(function(){
 
 	$('svg').click(function() {
 		if ($('#landing-background').css('background-color') == 'rgb(0, 150, 136)') {
-			$('#landing-background').css({'background-color':'#7986CB'},'slow');
+			$('#landing-background').css({'background-color':'#9FA8DA', opacity: 0.75},'slow');
 		} else {
-			$('#landing-background').css({'background-color':'#009688'},'slow');
+			$('#landing-background').css({'background-color':'#009688', opacity: 0.75},'slow');
 		}
 	});
 
@@ -318,7 +318,7 @@ $(document).ready(function(){
 	});
 
 	var blurb_active = false;
-	$('#experience-container').waypoint(function(direction) {
+	$('#timeline-last').waypoint(function(direction) {
 		var text = "Like what you see?  <br />Let's get in touch.";
 		if (direction == 'down' && blurb_active == false) {
 			animate_typed_text_no_delay('.blurb',text);
@@ -369,7 +369,7 @@ function animate_typed_text(div,text) {
 							$(div).html(text.slice(0,cursor_val) + "  ");
 						}
 						cursor_val++;
-					},75*(j - old_slice_val));
+					},60*(j - old_slice_val));
 				}
 
 				//Naturally move the cursor down to the next line after a little while after finishing a line of text.
@@ -382,7 +382,7 @@ function animate_typed_text(div,text) {
 							$(div).html(text.slice(0,cursor_val - 1 + '  <br />'.length) + "  ");
 						}
 						var h = $(div).html();
-					},75*(j - old_slice_val + 15));
+					},60*(j - old_slice_val + 15));
 					
 				}
 
