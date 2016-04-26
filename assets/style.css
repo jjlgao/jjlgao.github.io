@@ -6,6 +6,7 @@ body {
 	background: #f7f5f2; /* Off-white. */
 	/*background: #E0F2F1;*/
 	/*background: -webkit-linear-gradient(top, rgba(parseInt('E0',16), parseInt('F2',16), parseInt('F1',16), 0.48) 0%, rgba(parseInt('E0',16), parseInt('F2',16), parseInt('F1',16), 0.96) 100%)*/
+	color: #ffffff;
 }
 
 /* CSS attributes for the landing page--the first page that is seen when the website is accessed. */
@@ -264,6 +265,7 @@ path {
 	position: relative;
 	height: 100%;
 	width: 100%;
+	background: #212121;
 }
 
 .header {
@@ -279,7 +281,7 @@ path {
 #about-top {
 	display: inline-block;
 	text-align: center;
-	margin-top: 9%;
+	margin-top: 7.5%;
 	height: 30%;
 	width: 100%;
 	padding-bottom: 1%;
@@ -289,9 +291,11 @@ path {
 #about-expand {
 	display: none;
 	width: 100%;
-	height: 30%;
+	height: 25%;
+	/*height: 0px;*/
 	opacity: 0.0;
-	background: #ECEFF1;
+	background: #f7f5f2;
+	color: #212121;
 }
 
 #about-bottom {
@@ -334,14 +338,16 @@ path {
 	display: block;
 	padding-top: 100%;
 	background: url('campanile.jpg') center bottom;
+	border: 5px solid white;
 }
 
 #about-box-projs:before {
 	content: "";
 	display: block;
 	padding-top: 100%;
-	background: url('code.jpg') center center;
+	background: url('hammer.png') center center;
 	background-size: cover;
+	border: 5px solid white;
 }
 
 #about-box-interests:before {
@@ -350,6 +356,7 @@ path {
 	padding-top: 100%;
 	background: url('got-iron-throne.jpg') center center;
 	background-size: cover;
+	border: 5px solid white;
 }
 
 #about-box-me:before {
@@ -358,6 +365,7 @@ path {
 	padding-top: 100%;
 	background: url('san-diego-skyline.jpg') center center;
 	background-size: cover;
+	border: 5px solid white;
 }
 
 .about-box:hover {
@@ -381,6 +389,17 @@ path {
 .about-text {
 	display: none;
 	line-height: 1.5;
+	text-align: justify;
+}
+
+.about-logo {
+	display: block;
+	float: left;
+}
+
+.about-tiles {
+	display: none;
+	line-height: 1.5;
 }
 
 #ed-text {
@@ -388,6 +407,11 @@ path {
 	padding-right: 25%;
 	padding-top: 2.5%;
 	padding-bottom: 2.5%;
+}
+
+#about-circle-soda {
+	width: 150px;
+	height: 150px;
 }
 
 #proj-text {
@@ -399,6 +423,7 @@ path {
 
 #interests-text {
 	text-align: center;
+	max-width: 100%;
 }
 
 #me-text {
@@ -422,7 +447,7 @@ path {
 	display: inline-block;
 	position: relative;
 	text-align: center;
-	top: calc(50% - 80	px);
+	top: calc(50% - 80);
 	height: 75%;
 	margin-left: 2%;
 	margin-right: 2%;
@@ -483,10 +508,9 @@ path {
 
 .content-mini {
 	position: absolute;
-	top: calc(50% - 25px);
-	left: 0;
-	bottom: calc(50% + 5px);
-	right: 0;
+	top: 15%;
+	left: 5px;
+	right: 5px;
 }
 
 /* CSS attributes for the experience page. */
@@ -494,19 +518,30 @@ path {
 	display: inline-block;
 	position: relative;
 	width: 100%;
-	background: #F06292;
+	background: #F06292; /* Pink */
+	/*background: #7986CB; /* Light blue */
+	/*background: #78909C; /* Blue-gray */
 	color: white;
+}
+
+#experience-overlay {
+	background: black;
+	opacity: 0.25;
 }
 
 #experience-header {
 	margin-bottom: 2%;
+	z-index: 100;
+	position: absolute;
 }
 
 #experience-blurb {
 	display: inline-block;
 	width: 100%;
 	text-align: center;
-	opacity: 1.0;
+	opacity: 0.5;
+	margin-top: 12px;
+	font-size: 18px;
 	transition: 1s;
 }
 
