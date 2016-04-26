@@ -159,21 +159,14 @@ $(document).ready(function(){
 
 				if (box_id == 'about-box-ed') {
 					$('#ed-text').show();
-					console.log($('#about-expand').height()*0.5 - $('#ed-text').height()*0.5);
-					$('#ed-text').css('padding-top', $('#about-expand').height()*0.5 - $('#ed-text').height()*0.5);
+					$('#ed-text').css('padding-top', $('#about-expand').height()*0.5 - 156*0.5);
 				}
 				else if (box_id == 'about-box-projs') {
 					$('#proj-text').show();
-					// $('#proj-text').css('padding-top', $('#about-expand').height()*0.5 - $('#proj-text').height()*0.5);
-
-					$('#about-og').hover(function() {
-						$('#about-og').text("Old Gods website");
-						});
+					$('#proj-text').css('padding-top', $('#about-expand').height()*0.5 - 156*0.5);
 				}
 				else if (box_id == 'about-box-interests') {
 					$('#interests-text').show();
-					// $('#interests-text').css('top') = $(window).height()*0.5 - $('#about-expand').css('height')*0.5;
-
 					var cw2 = $('.about-box-mini').height();
 					$('.about-box-mini').css({'width':cw2+'px'});
 
@@ -212,7 +205,7 @@ $(document).ready(function(){
 				}
 				else if (box_id == 'about-box-me') {
 					$('#me-text').show();
-					$('#me-text').css('padding-top', $('#about-expand').height()*0.5 - $('#me-text').height()*0.5);
+					$('#me-text').css('padding-top', $('#about-expand').height()*0.5 - 156*0.5);
 				}
 			},1000);
 		}
@@ -301,14 +294,12 @@ $(document).ready(function(){
 		var old_opacity = 1.0;
 		$('.exp-logo').hover(function() {
 			old_opacity = $(this).parent().parent().parent().find(".timeline-future").css('opacity');
-			//old_opacity = $(this).parent().parent().parent().find(".timeline-right-line").css('opacity');
 			if (old_opacity) {
 				old_opacity = 0.5;
 			}
 			if (!old_opacity) {
 				old_opacity = 1.0;
 			}
-			console.log(old_opacity);
 			$(this).parent().parent().parent().find(".timeline-left-line").animate({opacity: 0.75},400);
 			$(this).parent().parent().parent().find(".timeline-right-line").animate({opacity: 0.75},400);
 		},function() {
@@ -341,18 +332,6 @@ $(document).ready(function(){
 			blurb_active = true;
 		}
 	});
-
-	// $(window).scroll(function() {
-	// 	var offsetY = $(window).scrollTop();
-	// 	var waypoint = $('#contact-background').offset().top;
-	// 	var progress = offsetY / waypoint;
-		
-	// 	var translate = 10 * progress
-	// 	console.log(progress);
-	// 	$('#contact-background').css(
-	// 		'filter', 'blur(' + translate + 'px)'
-	// 	);
-	// });
 });
 
 function animate_typed_text(div,text) {
@@ -508,10 +487,6 @@ function animate_stars(div) {
 	var parent_div = document.getElementById(div.substr(1));
 	var max_height = 315;
 	var max_width = $(window).width() - 10;
-	console.log(max_width);
-
-	console.log(div);
-
 	var stars = []
 	
 	for (var i=0; i < num_stars; i++) {
