@@ -164,7 +164,11 @@ $(document).ready(function(){
 				}
 				else if (box_id == 'about-box-projs') {
 					$('#proj-text').show();
-					$('#proj-text').css('padding-top', $('#about-expand').height()*0.5 - $('#proj-text').height()*0.5);
+					// $('#proj-text').css('padding-top', $('#about-expand').height()*0.5 - $('#proj-text').height()*0.5);
+
+					$('#about-og').hover(function() {
+						$('#about-og').text("Old Gods website");
+						});
 				}
 				else if (box_id == 'about-box-interests') {
 					$('#interests-text').show();
@@ -499,7 +503,7 @@ function animate_typed_text_no_delay(div,text) {
 
 function animate_stars(div) {
 	//Makes a bunch of circles flicker on the screen, like stars. 
-	var num_stars = 250;
+	var num_stars = 500;
 
 	var parent_div = document.getElementById(div.substr(1));
 	var max_height = 315;
@@ -518,13 +522,6 @@ function animate_stars(div) {
 		new_div.style.top = Math.random() * max_height;
 		new_div.style.left = Math.random() * max_width;
 
-		var new_div_size = Math.max(Math.random() * 10, 5);
-		new_div.style.width = new_div_size;
-		new_div.style.height = new_div_size;
-		new_div.style.borderRadius = new_div_size;
-
-		new_div.style.opacity = Math.random();
-
 		if (Math.random() < 0.1) {
 			new_div.style.background = '#B3E5FC'; //Light blue
 
@@ -538,6 +535,21 @@ function animate_stars(div) {
 				new_div.style.background = '#EF5350'; //Really angry red.
 			}
 		}
+
+		var new_div_size = Math.max(Math.random() * 6, 2);
+		if (Math.random() > 0.99) {
+			new_div_size = 15;
+
+			if (Math.random() > 0.75) {
+				//Make a black hole!
+				new_div.style.background = '#000000';
+			}
+		}
+		new_div.style.width = new_div_size;
+		new_div.style.height = new_div_size;
+		new_div.style.borderRadius = new_div_size;
+
+		new_div.style.opacity = Math.random();
 
 		stars.push(new_div);
 	}

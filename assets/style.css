@@ -419,6 +419,7 @@ path {
 	padding-right: 25%;
 	padding-top: 2.5%;
 	padding-bottom: 2.5%;
+	text-align: center;
 }
 
 #interests-text {
@@ -433,7 +434,7 @@ path {
 	padding-bottom: 1%;
 }
 
-#about-box-mini-container {
+.about-box-mini-container {
 	display: inline-block;
 	text-align: center;
 	margin-top: 2.5%;
@@ -454,6 +455,39 @@ path {
 	transition: 1s;
 	color: rgba(255, 255, 255, 0);
 	z-index: 100;
+}
+
+.proj-logo {
+	margin-left: 50px !important;
+	margin-right: 50px !important;
+}
+
+.about-circle-container {
+	display: inline-block;
+	width: 256px;
+	height: 200px;
+	text-align: center;
+}
+
+#about-og {
+	background: url('OG-image.png') center center;
+	background-size: cover;
+	text-decoration: none;
+	color: black;
+}
+
+#about-second {
+	background: url('coming-soon.jpg') center center;
+	background-size: cover;
+	text-decoration: none;
+	color: black;
+}
+
+#about-third {
+	background: url('coming-soon.jpg') center center;
+	background-size: cover;
+	text-decoration: none;
+	color: black;
 }
 
 #about-got:before {
